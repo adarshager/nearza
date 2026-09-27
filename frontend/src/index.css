@@ -1,0 +1,156 @@
+/* ===================================================================
+   NEARZA — Global Styles & Tailwind Directives
+   Theme: White + Sky Blue + Light Blue + Dark Text
+   Font: Inter
+   =================================================================== */
+
+@import "tailwindcss";
+
+/* ===================================================================
+   Custom Theme Layer
+   =================================================================== */
+@theme {
+  --color-nearza-50: #f0f9ff;
+  --color-nearza-100: #e0f2fe;
+  --color-nearza-200: #bae6fd;
+  --color-nearza-300: #7dd3fc;
+  --color-nearza-400: #38bdf8;
+  --color-nearza-500: #0ea5e9;
+  --color-nearza-600: #0284c7;
+  --color-nearza-700: #0369a1;
+  --color-nearza-800: #075985;
+  --color-nearza-900: #0c4a6e;
+
+  --color-success-50: #f0fdf4;
+  --color-success-500: #22c55e;
+  --color-success-600: #16a34a;
+
+  --color-warning-50: #fffbeb;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+
+  --color-danger-50: #fef2f2;
+  --color-danger-500: #ef4444;
+  --color-danger-600: #dc2626;
+
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+/* ===================================================================
+   Base Styles
+   =================================================================== */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #f8fafc;
+    color: #1e293b;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    color: #0f172a;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-family: inherit;
+  }
+
+  input, textarea, select {
+    font-family: inherit;
+    font-size: inherit;
+  }
+}
+
+/* ===================================================================
+   Utility Classes
+   =================================================================== */
+@layer utilities {
+  .glass {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .inventory-high {
+    color: var(--color-success-600);
+    background-color: var(--color-success-50);
+  }
+
+  .inventory-medium {
+    color: var(--color-warning-600);
+    background-color: var(--color-warning-50);
+  }
+
+  .inventory-low {
+    color: var(--color-danger-600);
+    background-color: var(--color-danger-50);
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* ===================================================================
+   Scrollbar Styling
+   =================================================================== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
