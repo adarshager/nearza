@@ -5,10 +5,24 @@
 
 import axios from 'axios';
 
-const API_BASE_URL =
-  import.meta.env.VITE_API_URL ||
-  import.meta.env.VITE_API_BASE_URL ||
-  'http://127.0.0.1:8000/api';
+// Resolve and normalize the API base URL to guarantee /api prefix
+const resolveApiBaseUrl = () => {
+  const envUrl =
+    import.meta.env.VITE_API_URL ||
+    import.meta.env.VITE_API_BASE_URL;
+
+  if (!envUrl) {
+    if (import.meta.env.PROD) {
+      return 'https://nearza.onrender.com/api';
+    }
+    return 'http://127.0.0.1:8000/api';
+  }
+
+  const clean = envUrl.trim().replace(/\/+$/, '');
+  return clean.endsWith('/api') ? clean : `${clean}/api`;
+};
+
+const API_BASE_URL = resolveApiBaseUrl();
 
 const api = axios.create({
   baseURL: API_BASE_URL,
